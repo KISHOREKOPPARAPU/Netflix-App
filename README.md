@@ -89,8 +89,8 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker') {
-                        sh "docker tag netflix kishorekopparapu/netflix:latest"
-                        sh "docker push kishorekopparapu/netflix:latest"
+                        sh "docker tag netflix kopparapukishore/netflix:latest"
+                        sh "docker push kopparapukishore/netflix:latest"
                     }
                 }
             }
@@ -99,9 +99,9 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker') {
-                        sh 'docker-scout quickview kishorekopparapu/netflix:latest'
-                        sh 'docker-scout cves kishorekopparapu/netflix:latest'
-                        sh 'docker-scout recommendations kishorekopparapu/netflix:latest'
+                        sh 'docker-scout quickview kopparapukishore/netflix:latest'
+                        sh 'docker-scout cves kopparapukishore/netflix:latest'
+                        sh 'docker-scout kopparapukishore kishorekopparapu/netflix:latest'
                     }
                 }
             }
