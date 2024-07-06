@@ -71,7 +71,7 @@ pipeline {
         }
         stage ("Git Checkout") {
             steps {
-                git branch: 'main', url: 'https://github.com/vijaygiduthuri/Netflix-Clone.git'
+                git branch: 'main', url: 'https://github.com/KISHOREKOPPARAPU/Netflix-App.git'
             }
         }
         stage('OWASP FS SCAN') {
@@ -89,8 +89,8 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker') {
-                        sh "docker tag netflix vijaygiduthuri/netflix:latest"
-                        sh "docker push vijaygiduthuri/netflix:latest"
+                        sh "docker tag netflix kishorekopparapu/netflix:latest"
+                        sh "docker push kishorekopparapu/netflix:latest"
                     }
                 }
             }
@@ -99,9 +99,9 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker') {
-                        sh 'docker-scout quickview vijaygiduthuri/netflix:latest'
-                        sh 'docker-scout cves vijaygiduthuri/netflix:latest'
-                        sh 'docker-scout recommendations vijaygiduthuri/netflix:latest'
+                        sh 'docker-scout quickview kishorekopparapu/netflix:latest'
+                        sh 'docker-scout cves kishorekopparapu/netflix:latest'
+                        sh 'docker-scout recommendations kishorekopparapu/netflix:latest'
                     }
                 }
             }
